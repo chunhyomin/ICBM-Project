@@ -1,42 +1,89 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  height: calc((100vw * 9 / 16) + 250px); /* 16:9 비율 + .box 높이 포함 */
+  max-height: 100vh; /* 화면 높이를 초과하지 않도록 제한 */
+  position: relative;
+  background-color: #76ceff;
+  overflow: hidden; /* 높이 초과 방지 */
+}
+
+.logoimg {
+  display: block;
+  margin: 100px auto 0; /* 위에서 100px 띄우고 가로 중앙 정렬 */
+  width: 40%; /* 반응형 너비 */
+  max-width: 600px; /* 최대 너비 */
+  height: auto; /* 비율 유지 */
+  position: relative;
+  z-index: 2; /* 이미지들이 다른 요소 위에 오도록 설정 */
+}
+
+.ch1img {
+  position: absolute;
+  bottom: 40px; /* 아래에서 40px 띄움 */
+  left: 40px; /* 왼쪽에서 40px 띄움 */
+  width: 30%; /* 너비를 30%로 설정 */
+  max-width: 250px; /* 최대 너비 설정 */
+  height: auto; /* 비율 유지 */
+  z-index: 10; /* 다른 요소들보다 앞에 배치 */
+}
+
+.ch2img {
+  position: absolute;
+  bottom: 40px; /* 아래에서 40px 띄움 */
+  right: 40px; /* 오른쪽에서 40px 띄움 */
+  width: 30%; /* 너비를 30%로 설정 */
+  max-width: 500px; /* 최대 너비 설정 */
+  height: auto; /* 비율 유지 */
+  z-index: 10; /* 다른 요소들보다 앞에 배치 */
+}
+
+.bubbleimg {
+  display: block;
+  margin: 100px auto 0; /* 위에서 100px 띄우고 가로 중앙 정렬 */
+  width: 40%; /* 반응형 너비 */
+  max-width: 600px; /* 최대 너비 */
+  height: auto; /* 비율 유지 */
+  position: relative;
+  height: auto; /* 비율 유지 */
+  z-index: 10; /* 다른 요소들보다 앞에 배치 */
+}
+
+.cloudimg {
+  position: absolute; /* 위치 고정 */
+  top: 0; /* 화면 상단에 고정 */
+  left: 0; /* 화면 왼쪽에 고정 */
+  width: 100%; /* 가로 길이만 100% */
+  height: auto; /* 비율을 유지하며 세로 자동 조정 */
+  z-index: 1; /* 다른 요소 뒤로 배치 */
+}
+
+.box {
+  width: 100%;
+  height: 250px;
+  background-color: #8ba649;
+  position: absolute;
+  bottom: 0;
+  z-index: 2; /* box는 다른 요소 위로 배치 */
+}
+div p {
+  position: absolute;
+  bottom: 20px; /* 화면 아래에서 20px 띄움 */
+  left: 50%;
+  transform: translateX(-50%); /* 텍스트 가로 중앙 정렬 */
+  font-size: 16px;
+  color: white;
   text-align: center;
+  width: 90%; /* 텍스트 영역의 너비 제한 */
+  max-width: 600px; /* 최대 너비 설정 */
+  opacity: 0; /* 애니메이션을 위한 초기 상태 */
+  animation: fadeIn 0.5s forwards;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    opacity: 1;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
