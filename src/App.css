@@ -1,65 +1,24 @@
-.App {
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.Background {
-  background: skyblue;
-  width: 100%;
-  display: flex;
-  color: white;
-  padding: 300px;
-  font-weight: 600;
-  font-size: 20px;
-  box-sizing: border-box;
-}
-
-.Background_u {
-  background: rgb(60, 129, 60);
-  width: 100%;
-  display: flex;
-  color: white;
-  padding: 20px;
-  font-weight: 600;
-  font-size: 20px;
-  box-sizing: border-box;
-}
-
-.cute_animal{
-  background-size: 80%;
-}
-
-img {
-  width: 300px;
-  height: 150px;
-  object-fit: contain;
-}
-@keyframes App-logo-spin {
+@keyframes logo-spin {
   from {
     transform: rotate(0deg);
   }
@@ -68,35 +27,16 @@ img {
   }
 }
 
-@media screen and (min-width: 768px) {
-  /* 스타일 작성 */
-}
-
-/* 미디어 타입이 print이며, 뷰포트의 해상도가 300dpi 이상일 때 */
-@media print and (min-resolution: 300dpi) {
-  /* 스타일 작성 */
-}
-
-/* 뷰포트의 최대 너비가 767px 이하이며, 기기 방향이 세로일 때 */
-@media (max-width: 767px) and (orientation: portrait) {
-  /* 스타일 작성 */
-}
-
-.container {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 800px;
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
   }
 }
 
-@media (min-width: 992px) {
-  .container {
-    max-width: 1000px;
-  }
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
 }
