@@ -3,7 +3,7 @@
   height: calc((100vw * 9 / 16) + 250px); /* 16:9 비율 + .box 높이 포함 */
   max-height: 100vh; /* 화면 높이를 초과하지 않도록 제한 */
   position: relative;
-  background-color: #76ceff;
+  background: linear-gradient(to bottom, #8d8ffd, #76ceff); /* 위에서 아래로 그라데이션 */
   overflow: hidden; /* 높이 초과 방지 */
 }
 
