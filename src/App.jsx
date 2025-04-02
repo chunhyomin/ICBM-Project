@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import styled, { ThemeProvider } from "styled-components";
 
 import theme from "/theme.js";
-
 import logo from "/logo.png";
 import ch1 from "/여울이.png";
 import ch2 from "/너굴맨.png";
@@ -39,7 +38,7 @@ function App() {
 
   // 텍스트 애니메이션 효과
   useEffect(() => {
-    let index = 0;c
+    let index = 0;
     const interval = setInterval(() => {
       if (index < text.length) {
         let newText = text.slice(0, index + 1);
