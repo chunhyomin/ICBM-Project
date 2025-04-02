@@ -9,7 +9,7 @@
 
 .logoimg {
   display: block;
-  margin: 100px auto 0; /* 위에서 100px 띄우고 가로 중앙 정렬 */
+  margin: 80px auto 0; /* 위에서 100px 띄우고 가로 중앙 정렬 */
   width: 40%; /* 반응형 너비 */
   max-width: 600px; /* 최대 너비 */
   height: auto; /* 비율 유지 */
@@ -18,7 +18,7 @@
 }
 
 .ch1img {
-  position: absolute;
+  /* position: absolute; */
   bottom: 40px; /* 아래에서 40px 띄움 */
   left: 40px; /* 왼쪽에서 40px 띄움 */
   width: 30%; /* 너비를 30%로 설정 */
@@ -28,7 +28,7 @@
 }
 
 .ch2img {
-  position: absolute;
+  /* position: absolute; */
   bottom: 40px; /* 아래에서 40px 띄움 */
   right: 40px; /* 오른쪽에서 40px 띄움 */
   width: 30%; /* 너비를 30%로 설정 */
@@ -39,8 +39,8 @@
 
 .bubbleimg {
   display: block;
-  margin: 100px auto 0; /* 위에서 100px 띄우고 가로 중앙 정렬 */
-  width: 40%; /* 반응형 너비 */
+  margin: 20px auto 0; /* 위에서 100px 띄우고 가로 중앙 정렬 */
+  width: 100%; /* 반응형 너비 */
   max-width: 600px; /* 최대 너비 */
   height: auto; /* 비율 유지 */
   position: relative;
