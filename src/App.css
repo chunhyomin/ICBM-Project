@@ -3,7 +3,7 @@
   height: calc((100vw * 9 / 16) + 250px); /* 16:9 비율 + .box 높이 포함 */
   max-height: 100vh; /* 화면 높이를 초과하지 않도록 제한 */
   position: relative;
-  background-color: #76ceff;
+  background: linear-gradient(to bottom, #8d8ffd, #76ceff); /* 위에서 아래로 그라데이션 */
   overflow: hidden; /* 높이 초과 방지 */
 }
 
@@ -22,7 +22,7 @@
   bottom: 40px; /* 아래에서 40px 띄움 */
   left: 40px; /* 왼쪽에서 40px 띄움 */
   width: 30%; /* 너비를 30%로 설정 */
-  max-width: 250px; /* 최대 너비 설정 */
+  max-width: 500px; /* 최대 너비 설정 */
   height: auto; /* 비율 유지 */
   z-index: 10; /* 다른 요소들보다 앞에 배치 */
 }
@@ -59,7 +59,7 @@
 
 .box {
   width: 100%;
-  height: 250px;
+  height: 30%;
   background-color: #8ba649;
   position: absolute;
   bottom: 0;
