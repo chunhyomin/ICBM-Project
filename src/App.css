@@ -3,13 +3,13 @@
   height: calc((100vw * 9 / 16) + 250px); /* 16:9 비율 + .box 높이 포함 */
   max-height: 100vh; /* 화면 높이를 초과하지 않도록 제한 */
   position: relative;
-  background: linear-gradient(to bottom, #8d8ffd, #76ceff); /* 위에서 아래로 그라데이션 */
+  background-color: #76ceff;
   overflow: hidden; /* 높이 초과 방지 */
 }
 
 .logoimg {
   display: block;
-  margin: 100px auto 0; /* 위에서 100px 띄우고 가로 중앙 정렬 */
+  margin: 80px auto 0; /* 위에서 100px 띄우고 가로 중앙 정렬 */
   width: 40%; /* 반응형 너비 */
   max-width: 600px; /* 최대 너비 */
   height: auto; /* 비율 유지 */
@@ -18,17 +18,17 @@
 }
 
 .ch1img {
-  position: absolute;
+  /* position: absolute; */
   bottom: 40px; /* 아래에서 40px 띄움 */
   left: 40px; /* 왼쪽에서 40px 띄움 */
   width: 30%; /* 너비를 30%로 설정 */
-  max-width: 500px; /* 최대 너비 설정 */
+  max-width: 250px; /* 최대 너비 설정 */
   height: auto; /* 비율 유지 */
   z-index: 10; /* 다른 요소들보다 앞에 배치 */
 }
 
 .ch2img {
-  position: absolute;
+  /* position: absolute; */
   bottom: 40px; /* 아래에서 40px 띄움 */
   right: 40px; /* 오른쪽에서 40px 띄움 */
   width: 30%; /* 너비를 30%로 설정 */
@@ -39,8 +39,8 @@
 
 .bubbleimg {
   display: block;
-  margin: 100px auto 0; /* 위에서 100px 띄우고 가로 중앙 정렬 */
-  width: 40%; /* 반응형 너비 */
+  margin: 20px auto 0; /* 위에서 100px 띄우고 가로 중앙 정렬 */
+  width: 100%; /* 반응형 너비 */
   max-width: 600px; /* 최대 너비 */
   height: auto; /* 비율 유지 */
   position: relative;
@@ -59,10 +59,11 @@
 
 .box {
   width: 100%;
-  height: 30%;
+  height: 250px;
   background-color: #8ba649;
   position: absolute;
-  bottom: 0;
+  left: 0;/*화면 왼쪽에서 떨어져서 붙임임*/
+  bottom: 0%;
   z-index: 2; /* box는 다른 요소 위로 배치 */
 }
 div p {
