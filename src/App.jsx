@@ -104,7 +104,7 @@ function App() {
           </div></Col>
 
           <Col><img className="ch2img" src={ch2} /></Col>
-          <div className="box">
+          <div className="box">{/*초록색 박스*/}
 
           </div>
       </Row>
