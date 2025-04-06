@@ -1,10 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
-
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { Container, Row, Col } from "react-bootstrap";
 
 import logo from "/logo.png";
 import ch1 from "/여울이.png";
@@ -13,96 +10,93 @@ import cloud from "/cloud.png";
 import bubble from "/말풍선.png";
 import btimg from "/buttonimg.png";
 
+import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const TextBox = styled.p`
   position: absolute;
-  z-index: 999;
-  color: black;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #444;
   text-align: center;
   width: 80%;
-  font-size: ${({ fontSize }) => fontSize - 30}px;
+  font-size: ${({ fontSize }) => fontSize}px;
+  font-weight: 500;
+  z-index: 3;
+  white-space: pre-line;
 `;
 
-
-export default function Page2() {
+function App() {
   const navigate = useNavigate();
-  const text = "당신의 성별을 입력해주세요!";
+  const text = "당신의 성별을 선택해주세요!";
   const [displayText, setDisplayText] = useState("");
   const [loop, setLoop] = useState(0);
-  const [fontSize, setFontSize] = useState(1);
+  const [fontSize, setFontSize] = useState(16);
   const bubbleRef = useRef(null);
 
-  // 타이핑 효과
   useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
       if (index < text.length) {
         let newText = text.slice(0, index + 1);
-        if ((index + 1) % 15 === 0) newText += "\n";
+        if ((index + 1) % 18 === 0) newText += "\n";
         setDisplayText(newText);
-        index += 1;
+        index++;
       } else {
         clearInterval(interval);
         setTimeout(() => {
           setDisplayText("");
           setLoop((prev) => prev + 1);
-        }, 2000);
+        }, 2500);
       }
-    }, 100);
-
+    }, 90);
     return () => clearInterval(interval);
   }, [loop]);
 
-  // 말풍선 크기에 따라 폰트 조절
   useEffect(() => {
     const updateFontSize = () => {
       if (bubbleRef.current) {
-        const bubbleWidth = bubbleRef.current.offsetWidth;
-        setFontSize(Math.max(12, bubbleWidth * 0.1));
+        const width = bubbleRef.current.offsetWidth;
+        setFontSize(Math.max(12, width * 0.05));
       }
     };
-
     updateFontSize();
     window.addEventListener("resize", updateFontSize);
     return () => window.removeEventListener("resize", updateFontSize);
   }, []);
 
   return (
-    <Container>
-      <Row className="one">
-        <div className="App">
-          <img className="cloudimg" src={cloud} />
-        </div>
-      </Row>
-      <Row className="two">
-        <Col>
-          <img className="ch1img" src={ch1} />
-        </Col>
-        <Col>
-          <img className="ch2img" src={ch2} />
-        </Col>
-      </Row>
-      <Row>
-        <div style={{ position: "relative" }}>
-          <img className="bubbleimg" src={bubble} ref={bubbleRef} />
-          <TextBox fontSize={fontSize}>{displayText}</TextBox>
+    <div className="app-background">
+      <img src={cloud} className="cloud-bg" />
+      <Container fluid className="text-center">
+        <Row className="align-items-end justify-content-center mt-3 position-relative">
+          <Col xs={4} sm={3} md={2}>
+            <img src={ch1} alt="캐릭터1" className="char-img" />
+          </Col>
+          <Col xs={4} sm={3} md={2} className="d-flex justify-content-center gap-2">
+            <img src={ch2} alt="캐릭터2" className="char-img" />
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12} sm={6} md={5} className="position-relative">
+            <div style={{ position: "relative", display: "inline-block" }}>
+              <img src={bubble} alt="말풍선" className="bubble-img" ref={bubbleRef} />
+              <TextBox fontSize={fontSize}>{displayText}</TextBox>
 
-          {/* 버튼 이미지 */}
-          <img
-            className="button-img"
-            src={btimg}
-            onClick={() => navigate("/page3")}
-            style={{
-              width: "150px",
-              marginTop: "20px",
-              cursor: "pointer",
-            }}
-            alt="시작 버튼"
-          />
-        </div>
-      </Row>
-    </Container>
+              {/* 시작 버튼 - 말풍선 우측 상단에 고정 */}
+              <img
+                src={btimg}
+                alt="시작 버튼"
+                className="start-btn"
+                onClick={() => navigate("/page3")}
+              />
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 }
+
+export default App;
