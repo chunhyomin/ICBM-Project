@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 
+import logo from "/logo.png";
 import ch1 from "/여울이.png";
 import ch2 from "/너굴맨.png";
 import cloud from "/cloud.png";
@@ -10,6 +11,7 @@ import bubble from "/말풍선.png";
 import btimg from "/buttonimg.png";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./page2.css";
 import "../App.css";
 
 const TextBox = styled.p`
