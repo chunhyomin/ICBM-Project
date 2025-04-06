@@ -88,11 +88,6 @@ function App() {
               className="button-img"
               src={btimg}
               onClick={() => navigate("/page2")}
-              style={{
-                width: "150px",
-                marginTop: "20px",
-                cursor: "pointer",
-              }}
               alt="시작 버튼"
             />
           </div>

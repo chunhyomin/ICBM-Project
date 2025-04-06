@@ -18,25 +18,24 @@
 }
 
 .ch1img {
-  /* position: absolute; */
-  bottom: 40px; /* 아래에서 40px 띄움 */
-  left: 40px; /* 왼쪽에서 40px 띄움 */
-  width: 50%; /* 너비를 30%로 설정 */
-  max-width: 250px; /* 최대 너비 설정 */
-  height: auto; /* 비율 유지 */
-  z-index: 10; /* 다른 요소들보다 앞에 배치 */
+  position: relative;
+  bottom: 40px;
+  left: 40px;
+  width: 50%;
+  max-width: 500px;
+  height: auto;
+  z-index: 3;
 }
 
 .ch2img {
-  /* position: absolute; */
-  bottom: 40px; /* 아래에서 40px 띄움 */
-  right: 40px; /* 오른쪽에서 40px 띄움 */
-  width: 50%; /* 너비를 30%로 설정 */
-  max-width: 500px; /* 최대 너비 설정 */
-  height: auto; /* 비율 유지 */
-  z-index: 10; /* 다른 요소들보다 앞에 배치 */
+  position: relative; 
+  bottom: 40px;
+  right: 40px;
+  width: 50%;
+  max-width: 500px;
+  height: auto;
+  z-index: 3;
 }
-
 .bubbleimg {
   display: block;
   margin: 20px auto 0; /* 위에서 100px 띄우고 가로 중앙 정렬 */
@@ -45,7 +44,13 @@
   height: auto; /* 비율 유지 */
   position: relative;
   height: auto; /* 비율 유지 */
-  z-index: 10; /* 다른 요소들보다 앞에 배치 */
+  z-index: 2; /* 다른 요소들보다 앞에 배치 */
+}
+
+.button-img{
+  width: 150px;
+  margin-top: 20px;
+  cursor: pointer;
 }
 
 .cloudimg {
@@ -54,7 +59,7 @@
   left: 0; /* 화면 왼쪽에 고정 */
   width: 100%; /* 가로 길이만 100% */
   height: auto; /* 비율을 유지하며 세로 자동 조정 */
-  z-index: 1; /* 다른 요소 뒤로 배치 */
+  z-index: 0; /* 다른 요소 뒤로 배치 */
 }
 
 .box {

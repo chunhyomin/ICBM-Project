@@ -93,7 +93,7 @@ export default function Page2() {
           <img
             className="button-img"
             src={btimg}
-            onClick={() => navigate("/page2")}
+            onClick={() => navigate("/page3")}
             style={{
               width: "150px",
               marginTop: "20px",
