@@ -3,7 +3,6 @@ import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 
-import logo from "/logo.png";
 import ch1 from "/여울이.png";
 import ch2 from "/너굴맨.png";
 import cloud from "/cloud.png";
@@ -14,22 +13,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
 
 const TextBox = styled.p`
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #444;
-  text-align: center;
-  width: 80%;
   font-size: ${({ fontSize }) => fontSize}px;
   font-weight: 500;
-  z-index: 3;
+  color: #444;
   white-space: pre-line;
+  margin: 0;
+  word-break: keep-all;
 `;
 
 function App() {
   const navigate = useNavigate();
-  const text = "당신의 성별을 선택해주세요!";
+  const text = "당신의 성별을 입력해주세요!";
   const [displayText, setDisplayText] = useState("");
   const [loop, setLoop] = useState(0);
   const [fontSize, setFontSize] = useState(16);
@@ -55,36 +49,42 @@ function App() {
   }, [loop]);
 
   useEffect(() => {
-    const updateFontSize = () => {
+    const resizeObserver = new ResizeObserver(() => {
       if (bubbleRef.current) {
         const width = bubbleRef.current.offsetWidth;
-        setFontSize(Math.max(12, width * 0.05));
+        const calculatedFontSize = Math.max(12, Math.min(width * 0.035, 22));
+        setFontSize(calculatedFontSize);
       }
-    };
-    updateFontSize();
-    window.addEventListener("resize", updateFontSize);
-    return () => window.removeEventListener("resize", updateFontSize);
+    });
+
+    if (bubbleRef.current) {
+      resizeObserver.observe(bubbleRef.current);
+    }
+
+    return () => resizeObserver.disconnect();
   }, []);
 
   return (
     <div className="app-background">
-      <img src={cloud} className="cloud-bg" />
+      <img src={cloud} className="cloud-bg" alt="배경" />
+
       <Container fluid className="text-center">
-        <Row className="align-items-end justify-content-center mt-3 position-relative">
-          <Col xs={4} sm={3} md={2}>
-            <img src={ch1} alt="캐릭터1" className="char-img" />
+        <Row className="justify-content-center mt-3">
+          <Col xs={6} sm={4} md={3}>
+            <img src={ch1} alt="캐릭터1" className="char-img char-left" />
           </Col>
-          <Col xs={4} sm={3} md={2} className="d-flex justify-content-center gap-2">
-            <img src={ch2} alt="캐릭터2" className="char-img" />
+          <Col xs={6} sm={4} md={3}>
+            <img src={ch2} alt="캐릭터2" className="char-img char-right" />
           </Col>
         </Row>
-        <Row>
-          <Col xs={12} sm={6} md={5} className="position-relative">
-            <div style={{ position: "relative", display: "inline-block" }}>
-              <img src={bubble} alt="말풍선" className="bubble-img" ref={bubbleRef} />
-              <TextBox fontSize={fontSize}>{displayText}</TextBox>
 
-              {/* 시작 버튼 - 말풍선 우측 상단에 고정 */}
+        <Row className="justify-content-center mt-3">
+          <Col xs={12} sm={10} md={8} lg={6} className="position-relative">
+            <div className="bubble-container" ref={bubbleRef}>
+              <img src={bubble} alt="말풍선" className="bubble-img" />
+              <div className="bubble-text">
+                <TextBox fontSize={fontSize}>{displayText}</TextBox>
+              </div>
               <img
                 src={btimg}
                 alt="시작 버튼"
