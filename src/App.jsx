@@ -17,7 +17,7 @@ import "./App.css";
 const TextBox = styled.p`
   font-size: ${({ fontSize }) => fontSize}px;
   font-weight: 500;
-  color: #444;
+  color: #8B8B8B;
   white-space: pre-line;
   margin: 0;
   word-break: keep-all;

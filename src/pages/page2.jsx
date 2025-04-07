@@ -94,6 +94,7 @@ function App() {
           <Col xs={6} sm={4} md={3}>
             <img
               src={ch1}
+              style={{ cursor: "pointer" }}
               alt="캐릭터1"
               className={`char-img char-left ${selectedGender === "여자" ? "selected" : ""}`}
               onClick={() => handleCharacterClick("여자")}
@@ -102,6 +103,7 @@ function App() {
           <Col xs={6} sm={4} md={3}>
             <img
               src={ch2}
+              style={{ cursor: "pointer" }}
               alt="캐릭터2"
               className={`char-img char-right ${selectedGender === "남자" ? "selected" : ""}`}
               onClick={() => handleCharacterClick("남자")}

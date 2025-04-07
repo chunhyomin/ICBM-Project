@@ -4,7 +4,6 @@
 
 .char-img {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
   transform-origin: bottom center; /* 확대 기준점을 아래로 */
 }
 
@@ -12,7 +11,7 @@
   transform: scale(1.2) translateY(70px); /* 적당히 확대 + 살짝만 위로 */
 }
 
-  /* 여울이(여자) 선택 시 */
+/* 여울이(여자) 선택 시 */
 .char-img.char-left.selected {
   filter: drop-shadow(0 0 10px rgba(255, 102, 153, 0.8));
 }
