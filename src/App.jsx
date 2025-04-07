@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 
 import logo from "/logo.png";
+import leaf from "/leaf.png";
 import ch1 from "/여울이.png";
 import ch2 from "/너굴맨.png";
 import cloud from "/cloud.png";
@@ -72,8 +73,11 @@ function App() {
       <img src={cloud} className="cloud-bg" alt="배경" />
 
       <Container fluid className="text-center">
+      <div className="position-absolute top-0 end-0 p-3">
+        <img src={leaf} alt="나뭇잎" className="leaf-img" />
+      </div>
         <Row className="justify-content-center mt-5">
-          <Col xs={10} md={6}>
+          <Col xs={8} md={6}>
             <img src={logo} alt="로고" className="logo-img" />
           </Col>
         </Row>

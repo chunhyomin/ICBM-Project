@@ -4,11 +4,12 @@ import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 
 import logo from "/logo.png";
+import leaf from "/leaf.png";
 import ch1 from "/여울이.png";
 import ch2 from "/너굴맨.png";
 import cloud from "/cloud.png";
 import bubble from "/말풍선.png";
-import btimg from "/buttonimg.png";
+import btimg2 from "/buttonimg2.png";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./page2.css";
@@ -30,6 +31,20 @@ function App() {
   const [loop, setLoop] = useState(0);
   const [fontSize, setFontSize] = useState(16);
   const bubbleRef = useRef(null);
+  const [selectedGender, setSelectedGender] = useState(null);
+
+  const handleCharacterClick = (gender) => {
+    console.log(gender);
+    setSelectedGender(gender);
+  };
+
+  const handleStartClick = () => {
+    if (!selectedGender) {
+      alert("성별을 선택해주세요!");
+    } else {
+      navigate("/page3");
+    }
+  };
 
   useEffect(() => {
     let index = 0;
@@ -71,12 +86,26 @@ function App() {
       <img src={cloud} className="cloud-bg" alt="배경" />
 
       <Container fluid className="text-center">
+        <div className="position-absolute top-0 end-0 p-3">
+          <img src={leaf} alt="나뭇잎" className="leaf-img" />
+        </div>
+
         <Row className="justify-content-center mt-3">
           <Col xs={6} sm={4} md={3}>
-            <img src={ch1} alt="캐릭터1" className="char-img char-left" />
+            <img
+              src={ch1}
+              alt="캐릭터1"
+              className={`char-img char-left ${selectedGender === "여자" ? "selected" : ""}`}
+              onClick={() => handleCharacterClick("여자")}
+            />
           </Col>
           <Col xs={6} sm={4} md={3}>
-            <img src={ch2} alt="캐릭터2" className="char-img char-right" />
+            <img
+              src={ch2}
+              alt="캐릭터2"
+              className={`char-img char-right ${selectedGender === "남자" ? "selected" : ""}`}
+              onClick={() => handleCharacterClick("남자")}
+            />
           </Col>
         </Row>
 
@@ -88,10 +117,10 @@ function App() {
                 <TextBox fontSize={fontSize}>{displayText}</TextBox>
               </div>
               <img
-                src={btimg}
+                src={btimg2}
                 alt="시작 버튼"
                 className="start-btn"
-                onClick={() => navigate("/page3")}
+                onClick={handleStartClick}
               />
             </div>
           </Col>

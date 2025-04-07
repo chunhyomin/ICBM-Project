@@ -23,6 +23,12 @@
   z-index: 3;
 }
 
+.leaf-img {
+  width: 60px;
+  height: auto;
+  z-index: 3;
+}
+
 .bubble-container {
   position: relative;
   width: 100%;
@@ -91,6 +97,7 @@
   width: 100vw;
   height: 30vh;
   background-color: #95bb53;
+  background: linear-gradient(to bottom, #95bb53, #a3a54b);
   z-index: 2;
 }
 

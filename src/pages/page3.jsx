@@ -1,18 +1,126 @@
 import { useNavigate } from "react-router-dom";
-import Container from 'react-bootstrap/Container';
+import { useState, useEffect, useRef } from "react";
+import styled from "styled-components";
+import { Container, Row, Col } from "react-bootstrap";
 
-export default function Page3() {
+import logo from "/logo.png";
+import leaf from "/leaf.png";
+import ch1 from "/여울이.png";
+import ch2 from "/너굴맨.png";
+import cloud from "/cloud.png";
+import bubble from "/말풍선.png";
+import btimg from "/buttonimg.png";
+import btimg2 from "/buttonimg2.png";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./page2.css";
+import "../App.css";
+
+const TextBox = styled.p`
+  font-size: ${({ fontSize }) => fontSize}px;
+  font-weight: 500;
+  color: #444;
+  white-space: pre-line;
+  margin: 0;
+  word-break: keep-all;
+`;
+
+function App() {
   const navigate = useNavigate();
+  const text = "당신의 성별을 입력해주세요!";
+  const [displayText, setDisplayText] = useState("");
+  const [loop, setLoop] = useState(0);
+  const [fontSize, setFontSize] = useState(16);
+  const bubbleRef = useRef(null);
+  const [selectedGender, setSelectedGender] = useState(null);//성별선택
+
+  //성별선택
+  const handleCharacterClick = (gender) => {
+    console.log(gender);
+    setSelectedGender(gender);
+  };
+
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index < text.length) {
+        let newText = text.slice(0, index + 1);
+        if ((index + 1) % 18 === 0) newText += "\n";
+        setDisplayText(newText);
+        index++;
+      } else {
+        clearInterval(interval);
+        setTimeout(() => {
+          setDisplayText("");
+          setLoop((prev) => prev + 1);
+        }, 2500);
+      }
+    }, 90);
+    return () => clearInterval(interval);
+  }, [loop]);
+
+  useEffect(() => {
+    const resizeObserver = new ResizeObserver(() => {
+      if (bubbleRef.current) {
+        const width = bubbleRef.current.offsetWidth;
+        const calculatedFontSize = Math.max(12, Math.min(width * 0.035, 22));
+        setFontSize(calculatedFontSize);
+      }
+    });
+
+    if (bubbleRef.current) {
+      resizeObserver.observe(bubbleRef.current);
+    }
+
+    return () => resizeObserver.disconnect();
+  }, []);
 
   return (
-    <Container style={{ textAlign: "center", marginTop: "100px" }}>
-      <h1>Page3</h1>
-      <button 
-        onClick={() => navigate("/")}
-        className="btn btn-primary mt-3"
-      >
-        홈으로 돌아가기
-      </button>
-    </Container>
+    <div className="app-background">
+      <img src={cloud} className="cloud-bg" alt="배경" />
+
+      <Container fluid className="text-center">
+        <div className="position-absolute top-0 end-0 p-3">
+          <img src={leaf} alt="나뭇잎" className="leaf-img" />
+        </div>
+        <Row className="justify-content-center mt-3">
+          <Col xs={6} sm={4} md={3}>
+            <img
+              src={ch1}
+              alt="캐릭터1"
+              className={`char-img char-left ${selectedGender === "여자" ? "selected" : ""}`}
+              onClick={() => handleCharacterClick("여자")}
+            />
+          </Col>
+          <Col xs={6} sm={4} md={3}>
+            <img
+              src={ch2}
+              alt="캐릭터2"
+              className={`char-img char-right ${selectedGender === "남자" ? "selected" : ""}`}
+              onClick={() => handleCharacterClick("남자")}
+            />
+          </Col>
+        </Row>
+
+        <Row className="justify-content-center mt-3">
+          <Col xs={12} sm={10} md={8} lg={6} className="position-relative">
+            <div className="bubble-container" ref={bubbleRef}>
+              <img src={bubble} alt="말풍선" className="bubble-img" />
+              <div className="bubble-text">
+                <TextBox fontSize={fontSize}>{displayText}</TextBox>
+              </div>
+              <img
+                src={btimg2}
+                alt="시작 버튼"
+                className="start-btn"
+                onClick={() => navigate("/page3")}
+              />
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 }
+
+export default App;
