@@ -40,7 +40,7 @@ function App() {
 
   const handleStartClick = () => {
     if (!selectedGender) {
-      alert("성별을 선택해주세요!");
+      alert("성별을 선택해주세요!");//성별이 선택되지 않으면 다음으로 넘어갈 수 없음
     } else {
       navigate("/page3");
     }

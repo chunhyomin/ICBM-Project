@@ -2,13 +2,22 @@
     transform: translateY(160px); /* 아래로 내림 */
   }
 
-  .char-img {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    transform-origin: bottom center; /* 확대 기준점을 아래로 */
-  }
-  
-  .char-img.selected {
-    transform: scale(1.2) translateY(70px); /* 적당히 확대 + 살짝만 위로 */
-    /* box-shadow: 0 0 20px rgba(255, 200, 0, 0.7); 선택 표시용 */
-  }
+.char-img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  transform-origin: bottom center; /* 확대 기준점을 아래로 */
+}
+
+.char-img.selected {
+  transform: scale(1.2) translateY(70px); /* 적당히 확대 + 살짝만 위로 */
+}
+
+  /* 여울이(여자) 선택 시 */
+.char-img.char-left.selected {
+  filter: drop-shadow(0 0 10px rgba(255, 102, 153, 0.8));
+}
+
+/* 너굴킹(남자) 선택 시 */
+.char-img.char-right.selected {
+  filter: drop-shadow(0 0 10px rgb(0, 255, 247));
+}

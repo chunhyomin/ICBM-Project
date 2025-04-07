@@ -13,6 +13,7 @@
   left: 0;
   width: 100%;
   z-index: 1;
+  filter: drop-shadow(4px 4px 5px rgba(0, 0, 0, 0.3));
 }
 
 .logo-img {
@@ -43,6 +44,7 @@
   height: auto;
   position: relative;
   z-index: 1;
+  filter: drop-shadow(4px 4px 5px rgba(0, 0, 0, 0.3));
 }
 
 .bubble-text {
@@ -79,6 +81,7 @@
   width: 100%;
   height: auto;
   display: block;
+  filter: drop-shadow(4px 4px 5px rgba(0, 0, 0, 0.3));
 }
 
 .char-img {
@@ -88,6 +91,7 @@
   height: auto;
   transform: translateY(120px);
   z-index: 3;
+  filter: drop-shadow(4px 4px 5px rgba(0, 0, 0, 0.3));
 }
 
 .grass-bottom {
