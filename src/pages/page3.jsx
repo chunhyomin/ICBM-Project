@@ -9,11 +9,15 @@ import ch1 from "/여울이.png";
 import ch2 from "/너굴맨.png";
 import cloud from "/cloud.png";
 import bubble from "/말풍선.png";
-import btimg from "/buttonimg.png";
 import btimg2 from "/buttonimg2.png";
 
+import picture1 from "../assets/picture1.png";
+import picture2 from "../assets/picture2.png";
+import picture3 from "../assets/picture3.png";
+import picture4 from "../assets/picture4.png";
+
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./page2.css";
+import "./page3.css";
 import "../App.css";
 
 const TextBox = styled.p`
@@ -27,17 +31,19 @@ const TextBox = styled.p`
 
 function App() {
   const navigate = useNavigate();
-  const text = "당신의 성별을 입력해주세요!";
+  const text = "마음에 드는 사진을 한 장 선택해 주세요!";
   const [displayText, setDisplayText] = useState("");
   const [loop, setLoop] = useState(0);
   const [fontSize, setFontSize] = useState(16);
   const bubbleRef = useRef(null);
-  const [selectedGender, setSelectedGender] = useState(null);//성별선택
+  const [selectedPictureIndex, setSelectedPictureIndex] = useState(null);
 
-  //성별선택
-  const handleCharacterClick = (gender) => {
-    console.log(gender);
-    setSelectedGender(gender);
+  const pictureList = [picture1, picture2, picture3, picture4];
+
+  const handleImageClick = (index, src) => {
+    const fileName = src.split("/").pop();
+    console.log("선택한 파일명:", fileName);
+    setSelectedPictureIndex(index);
   };
 
   useEffect(() => {
@@ -83,42 +89,57 @@ function App() {
         <div className="position-absolute top-0 end-0 p-3">
           <img src={leaf} alt="나뭇잎" className="leaf-img" />
         </div>
-        <Row className="justify-content-center mt-3">
-          <Col xs={6} sm={4} md={3}>
-            <img
-              src={ch1}
-              alt="캐릭터1"
-              className={`char-img char-left ${selectedGender === "여자" ? "selected" : ""}`}
-              onClick={() => handleCharacterClick("여자")}
-            />
-          </Col>
-          <Col xs={6} sm={4} md={3}>
-            <img
-              src={ch2}
-              alt="캐릭터2"
-              className={`char-img char-right ${selectedGender === "남자" ? "selected" : ""}`}
-              onClick={() => handleCharacterClick("남자")}
-            />
-          </Col>
+
+        <Row className="justify-content-center mt-5 gx-2">
+          {pictureList.map((pic, index) => (
+            <Col
+              key={index}
+              xs="auto"
+              className="d-flex justify-content-center align-items-center px-1"
+            >
+              <img
+                src={pic}
+                alt={`사진${index + 1}`}
+                className={`picture-img ${
+                  selectedPictureIndex === index ? "selected-picture" : ""
+                }`}
+                onClick={() => handleImageClick(index, pic)}
+                style={{ cursor: "pointer" }}
+              />
+            </Col>
+          ))}
         </Row>
 
-        <Row className="justify-content-center mt-3">
-          <Col xs={12} sm={10} md={8} lg={6} className="position-relative">
+        <Row className="character-row justify-content-center align-items-center">
+          <Col xs={4} sm={3} md={2} className="d-flex justify-content-center">
+            <img src={ch1} alt="캐릭터1" className="char-img" />
+          </Col>
+
+          <Col xs={12} sm={6} md={5} className="position-relative">
             <div className="bubble-container" ref={bubbleRef}>
               <img src={bubble} alt="말풍선" className="bubble-img" />
               <div className="bubble-text">
                 <TextBox fontSize={fontSize}>{displayText}</TextBox>
               </div>
-              <img
-                src={btimg2}
-                alt="시작 버튼"
-                className="start-btn"
-                onClick={() => navigate("/page3")}
-              />
+
+              {selectedPictureIndex !== null && (
+                <img
+                  src={btimg2}
+                  alt="버튼"
+                  className="start-btn"
+                  onClick={() => navigate("/page4")}
+                />
+              )}
             </div>
+          </Col>
+
+          <Col xs={4} sm={3} md={2} className="d-flex justify-content-center">
+            <img src={ch2} alt="캐릭터2" className="char-img" />
           </Col>
         </Row>
       </Container>
+
+      <div className="grass-bottom"></div>
     </div>
   );
 }

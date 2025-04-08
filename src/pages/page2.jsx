@@ -40,7 +40,7 @@ function App() {
 
   const handleStartClick = () => {
     if (!selectedGender) {
-      alert("성별을 선택해주세요!");//성별이 선택되지 않으면 다음으로 넘어갈 수 없음
+      alert("성별을 선택해주세요!");
     } else {
       navigate("/page3");
     }
@@ -118,12 +118,15 @@ function App() {
               <div className="bubble-text">
                 <TextBox fontSize={fontSize}>{displayText}</TextBox>
               </div>
-              <img
-                src={btimg2}
-                alt="시작 버튼"
-                className="start-btn"
-                onClick={handleStartClick}
-              />
+
+              {selectedGender && (
+                <img
+                  src={btimg2}
+                  alt="시작 버튼"
+                  className="start-btn"
+                  onClick={handleStartClick}
+                />
+              )}
             </div>
           </Col>
         </Row>
