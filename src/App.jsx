@@ -16,7 +16,7 @@ import "./App.css";
 
 const TextBox = styled.p`
   font-size: ${({ fontSize }) => fontSize}px;
-  font-weight: 500;
+  font-weight: 700;
   color: #8B8B8B;
   white-space: pre-line;
   margin: 0;
@@ -59,32 +59,32 @@ function App() {
         setFontSize(calculatedFontSize);
       }
     });
-  
+
     if (bubbleRef.current) {
       resizeObserver.observe(bubbleRef.current);
     }
-  
+
     return () => resizeObserver.disconnect();
   }, []);
-  
 
   return (
     <div className="app-background">
       <img src={cloud} className="cloud-bg" alt="배경" />
 
       <Container fluid className="text-center">
-      <div className="position-absolute top-0 end-0 p-3">
-        <img src={leaf} alt="나뭇잎" className="leaf-img" />
-      </div>
+        <div className="position-absolute top-0 end-0 p-3">
+          <img src={leaf} alt="나뭇잎" className="leaf-img" />
+        </div>
+
         <Row className="justify-content-center mt-5">
           <Col xs={8} md={6}>
             <img src={logo} alt="로고" className="logo-img" />
           </Col>
         </Row>
 
-        <Row className="align-items-end justify-content-center lowered-row position-relative">
-          <Col xs={4} sm={3} md={2}>
-          <img src={ch1} alt="캐릭터1" className="char-img char-left" />
+        <Row className="character-row justify-content-center align-items-center">
+          <Col xs={4} sm={3} md={2} className="d-flex justify-content-center">
+            <img src={ch1} alt="캐릭터1" className="char-img" />
           </Col>
 
           <Col xs={12} sm={6} md={5} className="position-relative">
@@ -102,8 +102,8 @@ function App() {
             </div>
           </Col>
 
-          <Col xs={4} sm={3} md={2} className="d-flex justify-content-center gap-2">
-          <img src={ch2} alt="캐릭터2" className="char-img char-right" />
+          <Col xs={4} sm={3} md={2} className="d-flex justify-content-center">
+            <img src={ch2} alt="캐릭터2" className="char-img" />
           </Col>
         </Row>
       </Container>
