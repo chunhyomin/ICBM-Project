@@ -22,8 +22,8 @@ import "../App.css";
 
 const TextBox = styled.p`
   font-size: ${({ fontSize }) => fontSize}px;
-  font-weight: 500;
-  color: #444;
+  font-weight: 700;
+  color: #8B8B8B;
   white-space: pre-line;
   margin: 0;
   word-break: keep-all;
@@ -90,27 +90,23 @@ function App() {
           <img src={leaf} alt="나뭇잎" className="leaf-img" />
         </div>
 
-        <Row className="justify-content-center mt-5 gx-2">
+        {/* 사진 영역 */}
+        <div className="picture-row mt-5">
           {pictureList.map((pic, index) => (
-            <Col
-              key={index}
-              xs="auto"
-              className="d-flex justify-content-center align-items-center px-1"
-            >
+            <div key={index}>
               <img
                 src={pic}
                 alt={`사진${index + 1}`}
-                className={`picture-img ${
-                  selectedPictureIndex === index ? "selected-picture" : ""
-                }`}
+                className={`picture-img ${selectedPictureIndex === index ? "selected-picture" : ""}`}
                 onClick={() => handleImageClick(index, pic)}
                 style={{ cursor: "pointer" }}
               />
-            </Col>
+            </div>
           ))}
-        </Row>
+        </div>
 
-        <Row className="character-row justify-content-center align-items-center">
+        {/* 캐릭터 + 말풍선 + 버튼 */}
+        <Row className="character-row justify-content-center align-items-center mt-4">
           <Col xs={4} sm={3} md={2} className="d-flex justify-content-center">
             <img src={ch1} alt="캐릭터1" className="char-img" />
           </Col>

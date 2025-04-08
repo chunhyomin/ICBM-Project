@@ -1,13 +1,43 @@
+.picture-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2vw;
+    padding: 0 5vw;
+}
+
+  /* 기본: 가로 비율 또는 넓은 화면일 경우 */
 .picture-img {
-    width: 120px;
-    height: 120px;
+    width: 18vw;
+    height: 18vw;
+    max-width: 240px;
+    max-height: 180px;
     object-fit: cover;
+    border-radius: 7px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 12px;
-  }
-  
-  .selected-picture {
-    transform: scale(1.15);
-    box-shadow: 0 0 12px 4px rgba(255, 215, 0, 0.8); /* 노란빛 glow 효과 */
-    z-index: 2;
-  }
+}
+
+.picture-img:hover {
+    transform: scale(1.05);
+}
+
+.selected-picture {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px 4px rgba(255, 215, 0, 0.6);
+}
+
+/* 화면이 세로로 더 길 경우: 2행 2열 정렬 */
+@media screen and (max-aspect-ratio: 3/4) {
+.picture-row {
+    flex-direction: row;
+    justify-content: center;
+    gap: 3vw;
+}
+
+.picture-img {
+    width: 38vw;
+    height: 38vw;
+    max-width: 170px;
+    max-height: 170px;
+}
+}
