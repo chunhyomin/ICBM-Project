@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import logo from "/logo.png";
+import temp_back from "/img_background.png";
 import ch1 from "/여울이.png";
 import ch2 from "/너굴맨.png";
 import cloud from "/cloud.png";
@@ -68,12 +68,38 @@ function App() {
     return () => window.removeEventListener("resize", updateFontSize);
   }, []);
 
+  let videoRef = useRef(null)
+
+  //사용자 웹캠에 접근
+  const getUserCamera = () =>{
+    navigator.mediaDevices.getUserMedia({
+      video:true
+    })
+    .then((stream) => {
+      //비디오 tag에 stream 추가
+      let video = videoRef.current
+
+      video.srcObject = stream
+
+      video.play()
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }
+
+  useEffect(() => {
+    getUserCamera()
+  },[videoRef])
+
+
+
   return (
-    <Container>
+    <Container style={{ minHeight: "120vh" }}>
       <Row className="one">
         <div className="App">
           <img className="cloudimg" src={cloud} />
-          <Col><img className="logoimg" src={logo} /></Col>
+          <Col><video className='video_type' ref={videoRef}></video></Col>
         </div>
       </Row>
       <Row className="two">
@@ -87,7 +113,7 @@ function App() {
             <img
               className="button-img"
               src={btimg}
-              onClick={() => navigate("/Picture")}
+              onClick={() => navigate("/Result")}
               style={{
                 width: "150px",
                 marginTop: "20px",
@@ -98,7 +124,6 @@ function App() {
           </div>
         </Col>
         <Col><img className="ch2img" src={ch2} /></Col>
-        <div className="box"></div>
       </Row>
     </Container>
   );
