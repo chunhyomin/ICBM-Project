@@ -99,3 +99,46 @@ div p {
     opacity: 1;
   }
 }
+
+
+.category-panel {
+  position: relative;
+}
+
+.panel-shape {
+  background: #cceeee;
+  height: 300px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+.banner {
+  background: #ffd700;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.image-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 8px;
+}
+
+.temp{
+  max-height: 33%;
+  height: 150px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 8px;
+}
+.btn-icon {
+  background: #eee;
+  padding: 10px 20px;
+  border-radius: 999px;
+  margin: 0 10px;
+  font-weight: bold;
+}
