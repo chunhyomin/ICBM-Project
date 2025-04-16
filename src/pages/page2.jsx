@@ -26,7 +26,7 @@ const TextBox = styled.p`
 
 function App() {
   const navigate = useNavigate();
-  const text = "당신의 성별을 선택해 주세요!";
+  const text = "당신의 성별에 맞는 캐릭터를 선택해 주세요!";
   const [displayText, setDisplayText] = useState("");
   const [loop, setLoop] = useState(0);
   const [fontSize, setFontSize] = useState(16);
@@ -82,7 +82,7 @@ function App() {
   }, []);
 
   return (
-    <div className="app-background">
+    <div className="app2-background">
       <img src={cloud} className="cloud-bg" alt="배경" />
 
       <Container fluid className="text-center">

@@ -68,7 +68,7 @@ function App() {
   }, []);
 
   return (
-    <div className="app-background">
+    <div className="app1-background">
       <img src={cloud} className="cloud-bg" alt="배경" />
 
       <Container fluid className="text-center">

@@ -11,10 +11,10 @@ import cloud from "/cloud.png";
 import bubble from "/말풍선.png";
 import btimg2 from "/buttonimg2.png";
 
-import picture1 from "../assets/picture1.png";
-import picture2 from "../assets/picture2.png";
-import picture3 from "../assets/picture3.png";
-import picture4 from "../assets/picture4.png";
+import picture1 from "../picture/picture1.png";
+import picture2 from "../picture/picture2.png";
+import picture3 from "../picture/picture3.png";
+import picture4 from "../picture/picture4.png";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./page3.css";
@@ -44,6 +44,7 @@ function App() {
     const fileName = src.split("/").pop();
     console.log("선택한 파일명:", fileName);
     setSelectedPictureIndex(index);
+    sessionStorage.setItem("selectedPicture", src); // 선택된 이미지 저장
   };
 
   useEffect(() => {
@@ -82,7 +83,7 @@ function App() {
   }, []);
 
   return (
-    <div className="app-background">
+    <div className="app3-background">
       <img src={cloud} className="cloud-bg" alt="배경" />
 
       <Container fluid className="text-center">
@@ -135,7 +136,7 @@ function App() {
         </Row>
       </Container>
 
-      <div className="grass-bottom"></div>
+      <div className="grass-bottom3"></div>
     </div>
   );
 }

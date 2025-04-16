@@ -1,3 +1,11 @@
+.app3-background {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to bottom, #8d8ffd, #ed8e66); /* 배경색 위에서 아래로 그라데이션 */
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
 .picture-row {
     display: flex;
     justify-content: center;
@@ -15,6 +23,7 @@
     object-fit: cover;
     border-radius: 7px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    filter: drop-shadow(4px 4px 5px rgba(0, 0, 0, 0.3));
 }
 
 .picture-img:hover {
@@ -23,7 +32,7 @@
 
 .selected-picture {
     transform: scale(1.1);
-    box-shadow: 0 0 15px 4px rgba(255, 215, 0, 0.6);
+    box-shadow: 0 0 17px 6px rgb(252, 218, 43);
 }
 
 /* 화면이 세로로 더 길 경우: 2행 2열 정렬 */
@@ -41,3 +50,12 @@
     max-height: 170px;
 }
 }
+/* .grass-bottom3{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 30vh;
+    background: linear-gradient(to bottom, #95bb53, #a3a54b);
+    z-index: 2;
+} */
