@@ -7,7 +7,7 @@
   z-index: 0;
 }
 .bubble-container {
-    transform: translateY(160px); /* 아래로 내림 */
+    transform: translateY(110px); /* 아래로 내림 */
   }
 
 .char-img {
@@ -16,15 +16,15 @@
 }
 
 .char-img.selected {
-  transform: scale(1.2) translateY(110px); /* 확대 + 위로 이동*/
+  transform: scale(1.1) translateY(60px); /* 확대 + 위로 이동*/
 }
 
 /* 여울이(여자) 선택 시 */
 .char-img.char-left.selected {
-  filter: drop-shadow(0 0 10px rgba(247, 15, 150, 0.8));
+  filter: drop-shadow(0 0 10px rgba(255, 102, 191, 0.8));
 }
 
 /* 너굴킹(남자) 선택 시 */
 .char-img.char-right.selected {
-  filter: drop-shadow(0 0 10px rgb(56, 66, 255));
+  filter: drop-shadow(0 0 10px rgb(96, 104, 255));
 }

@@ -23,77 +23,7 @@ import React from "react";
 const App = () => {
 return (
 <div className="container my-4">
-    <img src={cloud} className="cloud-bg" alt="배경" />
-    <div className="position-absolute top-0 end-0 p-3">
-        <img src={leaf} alt="나뭇잎" className="leaf-img" />
-    </div>
-    <div className="row">
-    {/* 좌측 패널 */}
-    <div className="col-md-4 text-center category-panel">
-        <div className="panel-shape"></div>
-        <div className="banner">
-        <span>고양이</span>
-        </div>
-    </div>
-
-    {/* 이미지 카드 그리드 */}
-    <div className="col-md-4 image-grid">
-        <div className="row">
-        {/* 반복 렌더링 */}
-        {[...Array(4)].map((_, i) => (
-            
-            <Row>
-            <Col>
-            <div key={i} className="col-6 col-sm-6 mb-3">
-            <div className="image-card">
-                <img src="your_image_url_here.png" alt="Character" className="img-fluid" />
-            </div>
-            </div>
-            </Col>
-            </Row>
-            
-        ))}
-        </div>
-    </div>
-
-    <div className="col-md-4 image-grid">
-        <div className="row">
-        {/* 반복 렌더링 */}
-        {[...Array(3)].map((_, i) => (
-            
-            <Row>
-            <Col>
-            <div key={i} className=" col-sm-12 mb-3">
-            <div className="image-card_2">
-                <div className="temp"> 
-
-                </div>
-            </div>
-            </div>
-            </Col>
-            </Row>
-            
-        ))}
-        </div>
-    </div>
-
-    </div>
-
-    {/* 하단 버튼 */}
-    <div className="text-center mt-4 buttons d-flex justify-content-center gap-3">
-        <img
-            src={minib1}
-            alt="인쇄하기"
-            className="btn-icon"
-            onClick={() => navigate("/page5")}
-        />
-        <img
-            src={minib2}
-            alt="돌아가기"
-            className="btn-icon"
-            onClick={() => navigate("/page4")}
-        />
-    </div>
+    <p>마지막페이지</p>
 </div>
 );
 };

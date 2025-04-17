@@ -5,8 +5,8 @@ import { Container, Row, Col } from "react-bootstrap";
 
 import logo from "/logo.png";
 import leaf from "/leaf.png";
-import ch1 from "/여울이.png";
-import ch2 from "/너굴맨.png";
+import ch1 from "/f.png";
+import ch2 from "/m.png";
 import cloud from "/cloud.png";
 import bubble from "/말풍선.png";
 import btimg2 from "/buttonimg2.png";
