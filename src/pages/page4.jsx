@@ -35,7 +35,7 @@ const tattooList = [tatoo1, tatoo2, tatoo3, tatoo4];
 
 const handleTatooClick = (imgSrc) => {
 if (selectedTattoos.includes(imgSrc)) {
-    setSelectedTattoos(selectedTattoos.filter(item => item !== imgSrc));
+    setSelectedTattoos(selectedTattoos.filter((item) => item !== imgSrc));
 } else if (selectedTattoos.length < 4) {
     setSelectedTattoos([...selectedTattoos, imgSrc]);
 }
@@ -53,7 +53,11 @@ return (
     <div className="col-md-4 text-center category-panel">
         <div className="panel-shape">
         {selectedPicture && (
-            <img src={selectedPicture} alt="선택한 사진" className="selected-panel-image" />
+            <img
+            src={selectedPicture}
+            alt="선택한 사진"
+            className="selected-panel-image"
+            />
         )}
         </div>
         <div className="banner">
@@ -61,7 +65,7 @@ return (
         </div>
         <div className="bubble-wrapper">
         <img src={bubble} alt="말풍선" className="bubble-image" />
-        <p className="bubble-text">textbox</p>
+        <p className="bubble-text">마음에 드는 타투를 골라주세요!</p>
         </div>
     </div>
 
@@ -74,7 +78,13 @@ return (
                 className="image-button"
                 onClick={() => handleTatooClick(imgSrc)}
             >
-                <img src={imgSrc} alt={`타투 ${i + 1}`} className="img-fluid tattoo-img" />
+                <img
+                src={imgSrc}
+                alt={`타투 ${i + 1}`}
+                className={`img-fluid tattoo-img ${
+                    selectedTattoos.includes(imgSrc) ? "selected" : ""
+                }`}
+                />
             </button>
             </div>
         ))}
