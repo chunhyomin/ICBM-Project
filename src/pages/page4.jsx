@@ -61,7 +61,7 @@ return (
         </div>
         <div className="bubble-wrapper">
         <img src={bubble} alt="말풍선" className="bubble-image" />
-        <p className="bubble-text">textboxxx</p>
+        <p className="bubble-text">textbox</p>
         </div>
     </div>
 
