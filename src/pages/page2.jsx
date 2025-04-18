@@ -96,7 +96,7 @@ function App() {
               src={ch1}
               style={{ cursor: "pointer" }}
               alt="캐릭터1"
-              className={`char-img char-left ${selectedGender === "여자" ? "selected" : ""}`}
+              className={`char2-img char2-left ${selectedGender === "여자" ? "selected" : ""}`}
               onClick={() => handleCharacterClick("여자")}
             />
           </Col>
@@ -105,7 +105,7 @@ function App() {
               src={ch2}
               style={{ cursor: "pointer" }}
               alt="캐릭터2"
-              className={`char-img char-right ${selectedGender === "남자" ? "selected" : ""}`}
+              className={`char2-img char2-right ${selectedGender === "남자" ? "selected" : ""}`}
               onClick={() => handleCharacterClick("남자")}
             />
           </Col>

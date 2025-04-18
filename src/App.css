@@ -1,7 +1,7 @@
 .app1-background {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(to bottom, #8d8ffd, #76ceff); /* 배경색 위에서 아래로 그라데이션 */
+  background: linear-gradient(to bottom, #8688ff, #76ceff); /* 배경색 위에서 아래로 그라데이션 */
   position: relative;
   overflow: hidden;
   z-index: 0;
@@ -113,5 +113,10 @@
     right: 0;          /* 오른쪽 끝에 딱 맞춤 */
     width: 30%;        /* 조금 더 크게 */
     max-width: 120px;  /* 화면이 작을 때 너무 커지지 않도록 */
+  }
+}
+@media (max-width: 576px) {
+  .char-img {
+    display: none;
   }
 }

@@ -59,3 +59,30 @@
     background: linear-gradient(to bottom, #95bb53, #a3a54b);
     z-index: 2;
 } */
+.button-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+    margin: 3vh 0;
+    flex-wrap: wrap;
+}
+
+.option-button {
+    width: 18vw;
+    max-width: 120px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.option-button:hover {
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+    .option-button {
+    width: 24vw;
+    max-width: 100px;
+    }
+}

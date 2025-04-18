@@ -10,21 +10,30 @@
     transform: translateY(110px); /* 아래로 내림 */
   }
 
-.char-img {
+.char2-img {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   transform-origin: bottom center; /* 확대 기준점을 아래로 */
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  transform: translateY(70px);
+  z-index: 3;
+  filter: drop-shadow(4px 4px 5px rgba(0, 0, 0, 0.3));
+  cursor: default;
 }
 
-.char-img.selected {
+
+.char2-img.selected {
   transform: scale(1.1) translateY(60px); /* 확대 + 위로 이동*/
 }
 
 /* 여울이(여자) 선택 시 */
-.char-img.char-left.selected {
+.char2-img.char2-left.selected {
   filter: drop-shadow(0 0 10px rgba(255, 102, 191, 0.8));
 }
 
-/* 너굴킹(남자) 선택 시 */
-.char-img.char-right.selected {
+/* 너굴맨(남자) 선택 시 */
+.char2-img.char2-right.selected {
   filter: drop-shadow(0 0 10px rgb(96, 104, 255));
 }

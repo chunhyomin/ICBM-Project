@@ -10,6 +10,10 @@ import ch2 from "/너굴맨.png";
 import cloud from "/cloud.png";
 import bubble from "/말풍선.png";
 import btimg2 from "/buttonimg2.png";
+import a from "../buttons/a.png"
+import b from "../buttons/b.png"
+import c from "../buttons/c.png"
+import d from "../buttons/d.png"
 
 import picture1 from "../picture/picture1.png";
 import picture2 from "../picture/picture2.png";
@@ -103,6 +107,19 @@ function App() {
                 style={{ cursor: "pointer" }}
               />
             </div>
+          ))}
+        </div>
+
+                {/* 버튼 영역 */}
+        <div className="button-row">
+          {[a, b, c, d].map((btn, index) => (
+            <img
+              key={index}
+              src={btn}
+              alt={`버튼${index + 1}`}
+              className="option-button"
+              onClick={() => console.log(`버튼 ${index + 1} 클릭됨`)}
+            />
           ))}
         </div>
 
