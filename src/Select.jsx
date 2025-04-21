@@ -20,7 +20,6 @@ const App = () => {
           <div className="row">
             {/* 반복 렌더링 */}
             {[...Array(4)].map((_, i) => (
-                
               <Row>
               <Col>
               <div key={i} className="col-6 col-sm-6 mb-3">
@@ -44,7 +43,7 @@ const App = () => {
               <Col>
               <div key={i} className=" col-sm-12 mb-3">
                 <div className="image-card_2">
-                  <div className="temp"> 
+                  <div className="temp">
 
                   </div>
                 </div>

@@ -119,10 +119,12 @@ const handleCapture = () => { //화면 캡쳐쳐
 
 
 
-const handleDownload = () => { // 이미지 다운로드
+const handleDownload = () => {
+  const base64Data = capturedImage.split(',')[1]; // 'data:image/png;base64,...' → base64 부분만 추출
+  const blob = new Blob([base64Data], { type: 'text/plain;charset=utf-8' });
   const link = document.createElement("a");
-  link.href = capturedImage;
-  link.download = "capture.png";
+  link.href = URL.createObjectURL(blob);
+  link.download = "encoded_image.txt";
   link.click();
 };
 
