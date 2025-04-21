@@ -1,27 +1,28 @@
-<<<<<<< HEAD
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Container } from "react-bootstrap";
-=======
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 
->>>>>>> df137b34434894e85d264cc7c3f92b02b8100f4a
 import logo from "/logo.png";
 import leaf from "/leaf.png";
 import ch1 from "/여울이.png";
 import ch2 from "/너굴맨.png";
 import cloud from "/cloud.png";
 import bubble from "/말풍선.png";
-<<<<<<< HEAD
-import but from "/버튼.png";
-=======
-import btimg from "/buttonimg.png";
+import btimg2 from "/buttonimg2.png";
+import a from "../buttons/a.png"
+import b from "../buttons/b.png"
+import c from "../buttons/c.png"
+import d from "../buttons/d.png"
+
+import picture1 from "../picture/picture1.png";
+import picture2 from "../picture/picture2.png";
+import picture3 from "../picture/picture3.png";
+import picture4 from "../picture/picture4.png";
 
 import "bootstrap/dist/css/bootstrap.min.css";
->>>>>>> df137b34434894e85d264cc7c3f92b02b8100f4a
-import "./App.css";
+import "./page3.css";
+import "../App.css";
 
 const TextBox = styled.p`
   font-size: ${({ fontSize }) => fontSize}px;
@@ -33,55 +34,22 @@ const TextBox = styled.p`
 `;
 
 function App() {
-<<<<<<< HEAD
-  return (
-    <div className="App">
-      {/* 로고 */}
-      <div className="text-center mt-3">
-        <img className="logoimg" src={logo} alt="로고" />
-      </div>
-
-      {/* 구름 배경 */}
-      <div className="cloud-container">
-        <img className="cloudimg" src={cloud} alt="구름" />
-      </div>
-
-      {/* 초록색 배경 박스 (배경 역할만) */}
-      <div className="info-box"></div>
-
-      {/* 캐릭터 + 말풍선 + 버튼 */}
-      <div className="content-wrapper">
-        {/* 캐릭터 */}
-        <div className="character-container">
-          <img className="ch1img" src={ch1} alt="여울이" />
-          <img className="ch2img" src={ch2} alt="너굴맨" />
-        </div>
-
-        {/* 말풍선 + 버튼 */}
-        <div className="bubble-button-container">
-          {/* 말풍선 */}
-          <div className="bubble-box">
-            <img className="bubbleimg" src={bubble} alt="말풍선" />
-            <p className="bubble-text">
-              AI를 활용하여 사용자와 닮은 동물을 매칭하는 시스템입니다.
-              시작 버튼을 눌러 동물 타투 스티커를 받아보세요.
-            </p>
-          </div>
-          {/* 버튼 */}
-          <div className="button-box">
-            <img className="button-img" src={but} alt="시작 버튼" />
-            <span className="button-text">시작하기</span>
-          </div>
-        </div>
-      </div>
-=======
   const navigate = useNavigate();
-  const text =
-    "AI를 활용하여 사용자와 닮은 동물을 매칭하는 시스템입니다. '시작하기'를 눌러 동물 타투 스티커를 받아보세요.";
+  const text = "마음에 드는 사진을 한 장 선택해 주세요!";
   const [displayText, setDisplayText] = useState("");
   const [loop, setLoop] = useState(0);
   const [fontSize, setFontSize] = useState(16);
   const bubbleRef = useRef(null);
+  const [selectedPictureIndex, setSelectedPictureIndex] = useState(null);
+
+  const pictureList = [picture1, picture2, picture3, picture4];
+
+  const handleImageClick = (index, src) => {
+    const fileName = src.split("/").pop();
+    console.log("선택한 파일명:", fileName);
+    setSelectedPictureIndex(index);
+    sessionStorage.setItem("selectedPicture", src); // 선택된 이미지 저장
+  };
 
   useEffect(() => {
     let index = 0;
@@ -119,7 +87,7 @@ function App() {
   }, []);
 
   return (
-    <div className="app1-background">
+    <div className="app3-background">
       <img src={cloud} className="cloud-bg" alt="배경" />
 
       <Container fluid className="text-center">
@@ -127,13 +95,36 @@ function App() {
           <img src={leaf} alt="나뭇잎" className="leaf-img" />
         </div>
 
-        <Row className="justify-content-center mt-5">
-          <Col xs={8} md={6}>
-            <img src={logo} alt="로고" className="logo-img" />
-          </Col>
-        </Row>
+        {/* 사진 영역 */}
+        <div className="picture-row mt-5">
+          {pictureList.map((pic, index) => (
+            <div key={index}>
+              <img
+                src={pic}
+                alt={`사진${index + 1}`}
+                className={`picture-img ${selectedPictureIndex === index ? "selected-picture" : ""}`}
+                onClick={() => handleImageClick(index, pic)}
+                style={{ cursor: "pointer" }}
+              />
+            </div>
+          ))}
+        </div>
 
-        <Row className="character-row justify-content-center align-items-center">
+                {/* 버튼 영역 */}
+        <div className="button-row">
+          {[a, b, c, d].map((btn, index) => (
+            <img
+              key={index}
+              src={btn}
+              alt={`버튼${index + 1}`}
+              className="option-button"
+              onClick={() => console.log(`버튼 ${index + 1} 클릭됨`)}
+            />
+          ))}
+        </div>
+
+        {/* 캐릭터 + 말풍선 + 버튼 */}
+        <Row className="character-row justify-content-center align-items-center mt-4">
           <Col xs={4} sm={3} md={2} className="d-flex justify-content-center">
             <img src={ch1} alt="캐릭터1" className="char-img" />
           </Col>
@@ -144,12 +135,15 @@ function App() {
               <div className="bubble-text">
                 <TextBox fontSize={fontSize}>{displayText}</TextBox>
               </div>
-              <img
-                src={btimg}
-                alt="시작 버튼"
-                className="start-btn"
-                onClick={() => navigate("/page2")}
-              />
+
+              {selectedPictureIndex !== null && (
+                <img
+                  src={btimg2}
+                  alt="버튼"
+                  className="start-btn"
+                  onClick={() => navigate("/page4")}
+                />
+              )}
             </div>
           </Col>
 
@@ -159,8 +153,7 @@ function App() {
         </Row>
       </Container>
 
-      <div className="grass-bottom"></div>
->>>>>>> df137b34434894e85d264cc7c3f92b02b8100f4a
+      <div className="grass-bottom3"></div>
     </div>
   );
 }
