@@ -25,6 +25,25 @@ const TextBox = styled.p`
   font-size: ${({ fontSize }) => fontSize - 30}px;
 `;
 
+const uploadToServer = async () => {
+  if (!capturedImage) return;
+
+  try {
+    const response = await fetch("http://localhost:5173/upload", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ image: capturedImage }) // base64 포함된 문자열 전송
+    });
+
+    const data = await response.json();
+    console.log("서버 응답:", data);
+  } catch (error) {
+    console.error("업로드 실패:", error);
+  }
+};
+
 function App() {
   const navigate = useNavigate();
   const text = "AI를 활용하여 사용자와 닮은 동물을 매칭하는 시스템입니다. 시작 버튼을 눌러 동물 타투 스티커를 받아보세요.";
@@ -100,7 +119,7 @@ function App() {
 
 
 
-const handleCapture = () => { //화면 캡쳐쳐
+const handleCapture = () => { //화면 캡쳐
   const video = videoRef.current;
   const canvas = canvasRef.current;
   const ctx = canvas.getContext("2d");
@@ -154,9 +173,11 @@ const handleDownload = () => {
 
           {/* 저장 버튼 (캡처된 이미지 있을 때만 표시) */}
           {capturedImage && (
-            <button onClick={handleDownload} style={{ padding: "10px 20px", fontSize: "16px" }}>
-              이미지 저장
-            </button>
+          <button
+           onClick={uploadToServer}
+           style={{ padding: "10px 20px", fontSize: "16px", marginLeft: "10px" }}>
+           이미지 저장
+          </button>
           )}
         </Col>
       </Row>

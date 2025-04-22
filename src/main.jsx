@@ -5,6 +5,7 @@ import App from "./App.jsx";
 import Picture from "./Picture.jsx";
 import Result from "./Result.jsx";
 import Select from "./Select.jsx";
+import Loding from "./Loding.jsx";
 import "./index.css";
 
 createRoot(document.getElementById("root")).render(
@@ -15,6 +16,8 @@ createRoot(document.getElementById("root")).render(
         <Route path="/Picture" element={<Picture />} />
         <Route path="/Result" element={<Result />} />
         <Route path="/Select" element={<Select />} />
+        <Route path="/Loding" element={<Loding />} />
+
       </Routes>
     </BrowserRouter>
   </StrictMode>
